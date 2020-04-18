@@ -1,16 +1,29 @@
 <!doctype html>
 <html lang="en-US">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Coding Template</title>
+  <title>Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link rel="stylesheet" type="text/css" href="bundle.css">
 </head>
 
 <body>
-  <h1>Webpack - TypeScript - Scss</h1>
-  <h2>TypeScript Hello World</h2>  
-  <div id="content"></div>
-    
+  <h1>Calculator</h1>
+  <div id="app">
+    <input v-model.number="number1" type="number" placeholder="Type a number" />
+    <select v-model="operation" name="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input v-model.number="number2" type="number" placeholder="Type a number" />
+    <button v-on:click="calculate">=</button>
+    {{result}}
+    <div>
+      {{number1}} {{operation}} {{number2}}
+    </div>
+  </div>
   <script src="bundle.js"></script>
 </body>
-</html>

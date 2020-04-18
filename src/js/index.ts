@@ -1,12 +1,27 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
-
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+new Vue({
+    el: '#app',
+    data: {
+        number1: 0,
+        number2: 0,
+        operation: '+',
+        result: 0
+    },
+    methods: {
+        calculate: function () {
+            switch (this.operation) {
+                case "+":
+                    this.result = this.number1 + this.number2;
+                    break;
+                case "-":
+                    this.result = this.number1 - this.number2;
+                    break;
+                case "*":
+                    this.result = this.number1 * this.number2;
+                    break;
+                case "/":
+                    this.result = this.number1 / this.number2;
+                    break;
+            }
+        }
+    }
+})
