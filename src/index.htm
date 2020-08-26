@@ -22,8 +22,13 @@
     <button v-on:click="calculate">=</button>
     {{result}}
     <div>
-      {{number1}} {{operation}} {{number2}}
+      {{number1}} {{operation}} {{number2}} = {{result}}
     </div>
+
+    <h2>Using the <a href="https://www.w3schools.com/jsref/jsref_eval.asp">eval function</a></h2>
+    <input v-model="expression" placeholder="numerical expression">
+    <button v-on:click="calculate2">=</button>
+    {{result2}}
   </div>
   <script src="bundle.js"></script>
 </body>
