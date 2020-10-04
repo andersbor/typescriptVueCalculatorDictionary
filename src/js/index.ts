@@ -1,3 +1,14 @@
+var simpleDictionary: { [id: string]: number };
+
+// https://stackoverflow.com/questions/13242656/typescript-higher-order-function-types
+// https://stackoverflow.com/questions/15877362/declare-and-initialize-a-dictionary-in-typescript
+var operations: { [id: string]: ((x: number, y: number) => number); } = {
+    "+": (x, y) => x + y,
+    "-": (x, y) => x - y,
+    "*": (x, y) => x * y,
+    "/": (x, y) => x / y
+}
+
 new Vue({
     el: '#app',
     data: {
@@ -10,23 +21,28 @@ new Vue({
         stack: ['2', '3', '+']
     },
     methods: {
-        calculate: function () {
-            switch (this.operation) {
+        calculate(num1: number, operation: string, num2: number): void {
+            switch (operation) {
                 case "+":
-                    this.result = this.number1 + this.number2;
+                    this.result = num1 + num2;
                     break;
                 case "-":
-                    this.result = this.number1 - this.number2;
+                    this.result = num1 - num2;
                     break;
                 case "*":
-                    this.result = this.number1 * this.number2;
+                    this.result = num1 * num2;
                     break;
                 case "/":
-                    this.result = this.number1 / this.number2;
+                    this.result = num1 / num2;
                     break;
             }
         },
-        calculate2: function () {
+        calculateByDictionary(num1: number, operation: string, num2: number): void {
+            let oper = operations[operation]
+            console.log("operation " + oper)
+            this.result = oper(num1, num2)
+        },
+        calculate2(): void {
             //console.log(this.expression)
             this.result2 = eval(this.expression)
             //console.log(this.result2)

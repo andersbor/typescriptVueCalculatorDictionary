@@ -19,7 +19,7 @@
       <option value="/">/</option>
     </select>
     <input v-model.number="number2" type="number" placeholder="Type a number" />
-    <button v-on:click="calculate">=</button>
+    <button v-on:click="calculateByDictionary(number1, operation, number2)">=</button>
     {{result}}
     <div>
       {{number1}} {{operation}} {{number2}} = {{result}}
